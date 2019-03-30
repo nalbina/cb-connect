@@ -2,9 +2,11 @@ language: node_js
 
 node_js:
   - stable
-
-script:
-  - yarn run lint:ci
+jobs:
+  include:
+    - stage: 'Code Quality' # naming the Tests stage
+      name: 'Linting' # names the first Tests stage job
+      script: yarn run lint:ci
 
 cache:
   yarn: true
